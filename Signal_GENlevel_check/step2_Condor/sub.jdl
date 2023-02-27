@@ -1,0 +1,16 @@
+Universe = vanilla
+Notification = Error
+Output = condor_output
+Log = condor_log
+Error = condor_error
+
+use_x509userproxy = true
+x509userproxy=/afs/cern.ch/user/m/melu/private/x509up_u94817
+
+transfer_input_files=../get_hist.py
+Executable =sample_$(Process)/wrapper.sh
+Initialdir = sample_$(Process)
+notification = Error
+when_to_transfer_output = ON_EXIT
++JobFlavour = "nextweek"
+queue 630
